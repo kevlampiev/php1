@@ -51,10 +51,10 @@
 
         <div class="feedback">
             <div class="footer-title">contact us</div>
-            <form>
-                <input type="text" name="name-input" placeholder="Name">
-                <input type="text" name="emain-input" placeholder="Email">
-                <textarea name="message-input" id="message-input" cols="30" rows="10" placeholder="Message">
+            <form method="POST" action="addFeedBack.php">
+                <input type="text" name="user" placeholder="Name">
+                <input type="text" name="email" placeholder="Email">
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message">
                     Message</textarea>
                 <button>submit</button>
             </form>
