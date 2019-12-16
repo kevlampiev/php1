@@ -5,7 +5,7 @@ include("settings.php");
 function addPhoto($photoFile, $id, $descript)
 {
     return "<div class=\"gallery__item\" >
-            <img src=\"img/small/$photoFile\" alt=\"$photoFile\"  onclick=\"displayImg(this)\" data-id=\"$id\"
+            <img src=\"img/gallery/small/$photoFile\" alt=\"$photoFile\"  onclick=\"displayImg(this)\" data-id=\"$id\"
             data-description=\"$descript\">
           </div>\n";
 }

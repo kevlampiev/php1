@@ -46,10 +46,9 @@
         <nav>
             <ul>
                 <li><a href="/">home</a></li>
-                <li><a href="/articles.php">articles</a></li>
-                <li><a href="/">gallery</a></li>
-                <li><a href="/">catalog</a></li>
-                <li><a href="/calculators.php">calculator</a></li>
+                <li><a href="/catalog.php">shop</a></li>
+                <li><a href="/photos.php">gallery</a></li>
+                <li><a href="/calculators.php">calculators</a></li>
                 <li><a href="/">admin</a></li>
             </ul>
         </nav>
