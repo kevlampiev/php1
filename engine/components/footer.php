@@ -51,10 +51,10 @@
 
         <div class="feedback">
             <div class="footer-title">contact us</div>
-            <form>
-                <input type="text" name="name-input" placeholder="Name">
-                <input type="text" name="emain-input" placeholder="Email">
-                <textarea name="message-input" id="message-input" cols="30" rows="10" placeholder="Message">
+            <form method="POST" action="addFeedBack.php">
+                <input type="text" name="user" placeholder="Name">
+                <input type="text" name="email" placeholder="Email">
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Message">
                     Message</textarea>
                 <button>submit</button>
             </form>
@@ -78,7 +78,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+
 </body>
 
 </html>

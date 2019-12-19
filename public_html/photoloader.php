@@ -1,6 +1,7 @@
 <?php
 ob_start();
 $public_path =  $_SERVER['DOCUMENT_ROOT'];
+require('../engine/settings.php');
 
 //Честно своровано с просторов интернета
 function img_resize($src, $dest, $width, $height, $rgb = 0xFFFFFF, $quality = 100)
@@ -78,8 +79,8 @@ $photoCount = count($_FILES['photo']['name']);
 
 for ($i = 0; $i < $photoCount; $i++) {
     $name = $_FILES['photo']['name'][$i];
-    $path = "$public_path/img/fullsize/$name";
-    $smallPictPath = "$public_path/img/small/$name";
+    $path = "$public_path/img/gallery/fullsize/$name";
+    $smallPictPath = "$public_path/img/gallery/small/$name";
     $numbOfErr = 0; //счетчик ошибок, если не нулевой - не можем перейти на другую страницу
     if (($path[0] == ".") || (!exif_imagetype($_FILES['photo']['tmp_name'][$i]))) {
         echo "file $path isn't a picture <br>";
@@ -90,7 +91,8 @@ for ($i = 0; $i < $photoCount; $i++) {
         echo "$name loaded successfully to $path <br>";
         if (img_resize($path, $smallPictPath, 150, 0)) {
             echo "pictogramm $smallPictPath created successfully <br><br>";
-            //$numbOfErr++;
+            $sql = "INSERT INTO photos (title, descript) VALUES (\"$name\",\"uploaded by users\")";
+            if (!mysqli_query($connection, $sql)) $numbOfErr++;
         } else {
             echo "error while creating $smallPictPath <br><br>";
             $numbOfErr++;
@@ -101,6 +103,7 @@ for ($i = 0; $i < $photoCount; $i++) {
     }
 }
 
+mysqli_close($connection);
 echo "completed. Number or errors=$numbOfErr";
 if ($numbOfErr == 0) header("Location: /index.php");
 

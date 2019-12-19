@@ -1,7 +1,7 @@
 <div class="titled-container">
     <div class="title">gallery</div>
     <div class="gallery__navigation">
-        <!-- <button class="gallery__btn" onclick="addPhotos()"> Add more photos</button> -->
+        <button class="gallery__btn" onclick="addPhotos()"> Add more photos</button>
     </div>
     <div class="gallery__itemCnr">
 

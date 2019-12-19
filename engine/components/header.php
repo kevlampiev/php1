@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Photo-shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -46,7 +46,9 @@
         <nav>
             <ul>
                 <li><a href="/">home</a></li>
-                <li><a href="/articles.php">articles</a></li>
-                <li><a href="/">gallery</a></li>
+                <li><a href="/catalog.php">shop</a></li>
+                <li><a href="/photos.php">gallery</a></li>
+                <li><a href="/calculators.php">calculators</a></li>
+                <li><a href="/">admin</a></li>
             </ul>
         </nav>
