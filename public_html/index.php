@@ -7,14 +7,11 @@ require("../engine/components/header.php");
 
   <?php
   require("../engine/components/articles.php");
+  require('../engine/components/loginform.php');
   ?>
-
 
 </main>
 <?php
-  require("../engine/components/shout.php");
-?>
-
-<?php
-  require("../engine/components/footer.php");
+require("../engine/components/shout.php");
+require("../engine/components/footer.php");
 ?>

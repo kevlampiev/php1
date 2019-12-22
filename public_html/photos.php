@@ -8,6 +8,7 @@ require("../engine/settings.php");
 
   <?php
   require("../engine/components/gallery.php");
+  require('../engine/components/loginform.php');
   ?>
 
 

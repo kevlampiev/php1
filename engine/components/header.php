@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+
 
 </head>
 
@@ -23,8 +25,17 @@
         </div>
 
         <div class="links">
-            <a href="#">Sign Up</a>
-            <a href="#">Login</a>
+
+            <a href="new_user.php"> Sign Up </a>
+
+            <a href="#" onclick="makeLogin()" id="login-menu">
+                <?php if (trim($_COOKIE['user']) == '') : ?>
+                    Log in
+                <?php else : ?>
+                    Log out
+                <?php endif ?>
+            </a>
+
             <a href="#">RSS Feeds</a>
             <a href="#">Archived News</a>
         </div>
@@ -48,7 +59,29 @@
                 <li><a href="/">home</a></li>
                 <li><a href="/catalog.php">shop</a></li>
                 <li><a href="/photos.php">gallery</a></li>
-                <li><a href="/calculators.php">calculators</a></li>
-                <li><a href="/">admin</a></li>
+
             </ul>
         </nav>
+
+
+        <script>
+            function getCookie(name) {
+                var matches = document.cookie.match(new RegExp(
+                    '(?:^|\s)' + name.replace(/([.$?*+\\\/{}|()\[\]^])/g, '\\$1') + '=(.*?)(?:;|$)'
+                ))
+                return matches ? decodeURIComponent(matches[1]) : ''
+            }
+
+            function makeLogin() {
+                if (getCookie('user') == '') {
+                    let loginWindow = document.querySelector('.login-window')
+                    loginWindow.classList.remove('hidden')
+
+                } else {
+                    document.cookie = 'user=; expires=-1'
+                    document.cookie = 'password=; expires=-1'
+                    document.querySelector('#login-menu').innerHTML = "Log in"
+                }
+
+            }
+        </script>
