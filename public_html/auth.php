@@ -1,9 +1,6 @@
 <?php
 include("../engine/settings.php");
-function setStr(string $smth): string
-{
-    return (isset($smth) && !empty($smth)) ? trim(htmlspecialchars($smth)) : "";
-};
+include("../engine/common.php");
 
 $user = setStr($_POST['user']);
 $password = setStr($_POST['password']);

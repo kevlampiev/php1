@@ -17,7 +17,7 @@
   <div class="newUser-container">
 
     <div class="newUser-window">
-      <form action="auth.php" method="post">
+      <form action="addNewUser.php" method="post">
 
         <label for="login">Login: </label>
         <input type="text" name="login">
@@ -36,7 +36,6 @@
 
         <label for="email">e-mail:</label>
         <input type="email" name="email">
-
 
         <input type="submit" value="Sing up">
         <input type="reset" value="Reset">
