@@ -1,5 +1,5 @@
 <?php
-ob_start();
+// ob_start();
 $public_path =  $_SERVER['DOCUMENT_ROOT'];
 require('../engine/settings.php');
 
@@ -104,7 +104,7 @@ for ($i = 0; $i < $photoCount; $i++) {
 }
 
 mysqli_close($connection);
-echo "completed. Number or errors=$numbOfErr";
-if ($numbOfErr == 0) header("Location: /index.php");
+// echo "completed. Number or errors=$numbOfErr";
+// if ($numbOfErr == 0) header("Location: /index.php");
 
-ob_end_flush();
+// ob_end_flush();

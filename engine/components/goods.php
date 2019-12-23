@@ -16,23 +16,28 @@ while ($row = mysqli_fetch_assoc($result)) $goods[] = $row;
     </div>
     <div class="shop__items">
         <? foreach ($goods as $good) : ?>
-            <a href="/good-card.php?id=<?= $good['id'] ?>" class="mega-anchor">
-                <div class="good">
+
+            <div class="good">
+                <a href="/good-card.php?id=<?= $good['id'] ?>" class="mega-anchor">
                     <img src="<?= "img/shop/small/" . $good['img'] ?>" alt="good-image" class="good__image">
                     <h3 class="good__title"><?= $good['name'] ?></h3>
                     <div class="good__description">
                         <?= mb_strimwidth($good['description'], 0, 120, '...') ?>
                     </div>
-                    <div class="good__price">
-                        <p> <?= $good['price'] ?>
-                            <?= $good['currency'] ?>
-                        </p>
-                        <button class="order__button">Order</button>
-                    </div>
-
-
+                </a>
+                <div class="good__price">
+                    <p> <?= $good['price'] ?>
+                        <?= $good['currency'] ?>
+                    </p>
+                    <?php $good_id = $good['id'];
+                    echo "<button class=\"order__button\" ";
+                    echo "onclick= \"addToCart(event, $good_id ,1)\">Order</button>";
+                    ?>
                 </div>
-            </a>
+
+
+            </div>
+
         <? endforeach; ?>
 
     </div>
