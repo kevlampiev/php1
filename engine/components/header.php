@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery.js"></script>
+    <script src="js/common.js"></script>
 
 
 </head>
@@ -26,7 +27,7 @@
 
         <div class="links">
 
-            <a href="new_user.php"> Sign Up </a>
+            <a href="signUpForm.php"> Sign Up </a>
 
             <a href="#" onclick="makeLogin()" id="login-menu">
                 <?php if (trim($_COOKIE['user']) == '') : ?>
@@ -52,6 +53,9 @@
                 <input type="text" placeholder="Search Our Website...">
                 <input type="submit" value="SUBMIT">
             </form>
+            <div class="user-info">
+                <?= $_COOKIE['login'] ?>
+            </div>
         </header>
 
         <nav>
@@ -61,17 +65,18 @@
                 <li><a href="/photos.php">gallery</a></li>
 
             </ul>
+            <?php if (trim($_COOKIE['user']) != '') : ?>
+                <div class="cart">
+                    <?= $_COOKIE['user'] ?>
+                    <a href="cart.php">
+                        <i class="fa fa-shopping-cart" aria-hidden="true">Move</i></a>
+                </div>
+            <?php endif ?>
+
         </nav>
 
 
         <script>
-            function getCookie(name) {
-                var matches = document.cookie.match(new RegExp(
-                    '(?:^|\s)' + name.replace(/([.$?*+\\\/{}|()\[\]^])/g, '\\$1') + '=(.*?)(?:;|$)'
-                ))
-                return matches ? decodeURIComponent(matches[1]) : ''
-            }
-
             function makeLogin() {
                 if (getCookie('user') == '') {
                     let loginWindow = document.querySelector('.login-window')
@@ -85,3 +90,65 @@
 
             }
         </script>
+
+        <style>
+            nav {
+                margin: 0 20px;
+                padding: 0;
+                min-height: 50px;
+                background-color: #97455f;
+                color: #fff;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+            }
+
+            nav ul {
+                display: block;
+                width: 50%;
+                margin: 0;
+                padding: 0 20px 0 0;
+            }
+
+            nav li {
+                display: inline-block;
+                padding: 0 2px;
+            }
+
+            @media (max-width: 492px) {
+                nav ul {
+                    padding: 0;
+                }
+
+                nav li {
+                    display: block;
+                    text-align: center;
+                    border-bottom: 1px solid pink;
+                }
+            }
+
+            nav li a {
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: white;
+                padding: 0 15px;
+            }
+
+            nav li a:hover {
+                background-color: #6a3144;
+                text-decoration: none;
+                color: #fff;
+            }
+
+            nav .cart {
+                font-size: 16px;
+                margin: 15px 20px 0 0;
+            }
+
+            .cart a {
+                text-decoration: none;
+            }
+        </style>
